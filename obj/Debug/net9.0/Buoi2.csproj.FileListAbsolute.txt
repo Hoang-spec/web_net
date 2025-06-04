@@ -212,4 +212,5 @@ E:\NET\Buoi2\obj\Debug\net9.0\refint\Buoi2.dll
 E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.pdb
 E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.genruntimeconfig.cache
 E:\NET\Buoi2\obj\Debug\net9.0\ref\Buoi2.dll
-E:\NET\Buoi2\obj\Debug\net9.0\compressed\n3ky4y2xcf-wy9wvwkxk2.gz
+E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.sourcelink.json
+E:\NET\Buoi2\obj\Debug\net9.0\compressed\n3ky4y2xcf-kccu11vlxh.gz

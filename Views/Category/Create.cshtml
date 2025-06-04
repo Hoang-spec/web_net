@@ -1,34 +1,57 @@
 @using Categorys.Models
 @model Category
 
-<h2>Thêm danh mục mới</h2>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Thêm Danh Mục Mới</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/Category/Create">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<form method="post" action="/Category/Create">
-@Html.AntiForgeryToken()
-    <div class="form-group">
-        <label>Tên danh mục</label>
-        <input type="text" name="Name" class="form-control" required />
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="form-label">Tên Danh Mục</label>
+                            <input type="text" name="Name" class="form-control" required 
+                                   placeholder="Ví dụ: Điện thoại di động" />
+                            <small class="form-text text-muted">Tên danh mục nên ngắn gọn và dễ hiểu</small>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Logo" class="form-label">Logo Danh Mục</label>
+                            <input type="text" name="Logo" class="form-control" required 
+                                   placeholder="Nhập đường dẫn hình ảnh logo" />
+                            <small class="form-text text-muted">Ví dụ: https://example.com/images/category-logo.png</small>
+                            <span asp-validation-for="Logo" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Description" class="form-label">Mô Tả Danh Mục</label>
+                            <textarea name="Description" class="form-control" rows="4" required 
+                                      placeholder="Mô tả chi tiết về danh mục, các sản phẩm thuộc danh mục này..."></textarea>
+                            <small class="form-text text-muted">Giúp người dùng hiểu rõ hơn về danh mục này</small>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Thêm Danh Mục
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay Lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group"></div>
-        <label>Logo</label>
-        <input type="text" name="Logo" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label>Mô tả</label>
-        <textarea name="Description" class="form-control" required></textarea>
-    </div>
-    
-    <div class="form-group mt-3">
-        <button type="submit" class="btn btn-primary">Thêm mới</button>
-    </div>
-</form>
+</div>
 
 @section Scripts {
-    <script>
-        $(document).ready(function() {
-            $("form").on("submit", function(e) {
-                alert("Form đang submit!");
-            });
-        });
-    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
