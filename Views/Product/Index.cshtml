@@ -1,0 +1,185 @@
+@model IEnumerable<Products.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animate-up">
+                <div class="hero-content">
+                    <h1 class="hero-title">Khám Phá Thế Giới <span class="highlight">Mua Sắm</span></h1>
+                    <p class="hero-subtitle">Tìm kiếm sản phẩm chất lượng với giá tốt nhất</p>
+                    <div class="hero-search">
+                        <form class="search-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Bạn đang tìm kiếm gì?">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 animate-up delay-1">
+                <div class="hero-image-container">
+                    <div class="hero-image-wrapper">
+                        <img src="https://wallpapercave.com/wp/wp2855649.jpg" alt="Hero Image" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@{
+    var displayedCategoryIds = new HashSet<int>();
+}
+<h2 style="width: 90%; margin: auto">Danh mục sản phẩm</h2>
+<div class="danhmuc">
+    @foreach (var item in Model)
+    {
+        if (item.Category != null && !displayedCategoryIds.Contains(item.Category.Id))
+        {
+            displayedCategoryIds.Add(item.Category.Id);
+            <div class="cate">
+                <div class="lo">
+                    <img src="@item.Category?.Logo" alt="">
+                </div>
+                <div class="cate_text">
+                    <h3>@item.Category.Name</h3>
+                    <p>Sản phẩm được sản xuất tại Việt Nam</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<section class="special-offer-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animate-up">
+                <div class="special-offer-content">
+                    <h2>Ưu Đãi Đặc Biệt</h2>
+                    <h3>Giảm Giá Lên Đến 50%</h3>
+                    <a href="@Url.Action("Detail", "Product", new { id = 1 })" class="btn btn-light">Mua Ngay</a>
+                </div>
+            </div>
+            <div class="col-lg-6 animate-up delay-1">
+                <div class="special-offer-image">
+                    <img src="https://th.bing.com/th/id/OIP.dVfQHhHhcofBX-oVT-6ROwHaEK?r=0&rs=1&pid=ImgDetMain" alt="Special Offer" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="product-grid">
+    <div class="themmoi">
+        <h2>Danh sách sản phẩm</h2>
+        <p>Sản phẩm được nhiều người ưa chuộng nhờ tính năng nổi bật, độ bền cao và thiết kế hiện đại. Không chỉ đáp ứng nhu cầu hằng ngày, sản phẩm còn mang lại trải nghiệm tiện lợi, thoải mái và đảm bảo an toàn cho sức khỏe.</p>
+        <p style="width : 90%; margin : auto">
+            <a asp-action="Create" class="btn-primary">Thêm mới</a>
+        </p>
+    </div>
+            @foreach(var product in Model)
+            {
+                <div class="product-item">
+                    <img src="@product.image" alt="@product.Name" />
+
+                    <h3>@product.Name</h3>
+                    <p class="description">@product.Description</p>
+                    <p>Giá: @product.Price.ToString("N0") VNĐ</p>
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn-danger">Edit</a>
+
+                </div>
+            }
+        </div>
+
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="text-center mb-5 animate-up">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+        <div class="row g-4">
+            <div class="col-md-4 animate-up delay-1">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Sản phẩm chất lượng, giao hàng nhanh chóng. Tôi rất hài lòng với dịch vụ của cửa hàng!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer">
+                        <div class="author-info">
+                            <h4>Nguyễn Thị Hương</h4>
+                            <div class="rating">
+                                <i style="color: yellow;" class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-up delay-2">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Giá cả phải chăng, nhân viên nhiệt tình. Tôi sẽ tiếp tục ủng hộ cửa hàng!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer">
+                        <div class="author-info">
+                            <h4>Trần Văn Minh</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 animate-up delay-3">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Sản phẩm đúng như mô tả, đóng gói cẩn thận. Tôi rất thích mua sắm tại đây!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Customer">
+                        <div class="author-info">
+                            <h4>Lê Thị Mai</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-content animate-up">
+            <h2>Đăng Ký Nhận Tin</h2>
+            <p>Nhận thông tin về sản phẩm mới và ưu đãi đặc biệt</p>
+            <form class="newsletter-form">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Nhập email của bạn">
+                    <button class="btn" type="submit">Đăng Ký</button>
+                </div>
+            </form>
+        </div>
+</div>
+</section>
+

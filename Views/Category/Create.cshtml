@@ -1,0 +1,34 @@
+@using Categorys.Models
+@model Category
+
+<h2>Thêm danh mục mới</h2>
+
+<form method="post" action="/Category/Create">
+@Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Tên danh mục</label>
+        <input type="text" name="Name" class="form-control" required />
+    </div>
+    <div class="form-group"></div>
+        <label>Logo</label>
+        <input type="text" name="Logo" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label>Mô tả</label>
+        <textarea name="Description" class="form-control" required></textarea>
+    </div>
+    
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Thêm mới</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $("form").on("submit", function(e) {
+                alert("Form đang submit!");
+            });
+        });
+    </script>
+}

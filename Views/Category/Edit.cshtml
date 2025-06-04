@@ -1,0 +1,74 @@
+@model Categorys.Models.Category
+@{
+    ViewData["Title"] = "Sửa danh mục";
+}
+<h2>Sửa danh mục</h2>
+<form asp-controller="Category" asp-action="Edit" method="post" id="editForm">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Tên danh mục</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Mô tả</label>
+        <textarea asp-for="Description" class="form-control" required></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group"></div>
+        <label asp-for="Logo" class="control-label">Logo</label>
+        <textarea asp-for="Logo" class="form-control" required></textarea>
+        <span asp-validation-for="Logo" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary" id="saveButton">Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function() {
+            $("#editForm").on("submit", function(e) {
+                e.preventDefault();
+                console.log("Form submitting...");
+                
+                // Lấy dữ liệu từ form
+                var formData = new FormData(this);
+                
+                // Log dữ liệu để kiểm tra
+                for (var pair of formData.entries()) {
+                    console.log(pair[0] + ': ' + pair[1]);
+                }
+                
+                $.ajax({
+                    url: '@Url.Action("Edit", "Category")',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function(response) {
+                        console.log("Response:", response);
+                        if (response.success) {
+                            alert(response.message);
+                            window.location.href = '@Url.Action("Index", "Category")';
+                        } else {
+                            alert(response.message || "Có lỗi xảy ra!");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error:", error);
+                        console.error("Response:", xhr.responseText);
+                        alert("Có lỗi xảy ra khi cập nhật danh mục!");
+                    }
+                });
+            });
+        });
+    </script>
+} 

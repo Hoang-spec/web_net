@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - E-Commerce Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-store"></i>Hoang_Grab
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                                Danh Mục
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Điện Thoại</a></li>
+                                <li><a class="dropdown-item" href="#">Laptop</a></li>
+                                <li><a class="dropdown-item" href="#">Phụ Kiện</a></li>
+                                <li><a class="dropdown-item" href="#">Thời Trang</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Khuyến Mãi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tin Tức</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
+                            <button class="btn btn-outline-light" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div class="nav-icons">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="@Url.Action("Index", "Cart")" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-badge">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Về Chúng Tôi</h5>
+                    <p>Chúng tôi cung cấp những sản phẩm chất lượng cao với giá cả phải chăng. Cam kết mang đến trải nghiệm mua sắm tốt nhất cho khách hàng.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Liên Kết Nhanh</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Trang Chủ</a></li>
+                        <li><a href="#">Sản Phẩm</a></li>
+                        <li><a href="#">Giỏ Hàng</a></li>
+                        <li><a href="#">Tài Khoản</a></li>
+                        <li><a href="#">Theo Dõi Đơn Hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Chính Sách</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Chính Sách Bảo Mật</a></li>
+                        <li><a href="#">Điều Khoản Sử Dụng</a></li>
+                        <li><a href="#">Chính Sách Đổi Trả</a></li>
+                        <li><a href="#">Chính Sách Vận Chuyển</a></li>
+                        <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Liên Hệ</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Đường ABC, Quận XYZ, TP.HCM</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+84 123 456 789</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@ecommerce.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>8:00 - 20:00, Thứ 2 - Chủ Nhật</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="payment-methods">
+                            <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                            <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
+                            <img src="https://cdn-icons-png.flaticon.com/512/196/196565.png" alt="PayPal">
+                            <img src="https://cdn-icons-png.flaticon.com/512/196/196539.png" alt="Momo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
