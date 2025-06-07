@@ -257,6 +257,16 @@ color: #999999;
 .btn-danger{
   width: 80px;
   height: 30px;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: white;
+  background-color: #deedff;
+  border-radius: 4px;
+}
+.btn-danger:hover{
+    background-color: #4a90e2;
+    color: white;
+    transform: translateY(10px) 0.3 ease;
 }
 /* Testimonials Section */
 .testimonials-section {

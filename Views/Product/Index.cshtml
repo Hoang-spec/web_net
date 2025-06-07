@@ -80,9 +80,6 @@
     <div class="themmoi">
         <h2>Danh sách sản phẩm</h2>
         <p>Sản phẩm được nhiều người ưa chuộng nhờ tính năng nổi bật, độ bền cao và thiết kế hiện đại. Không chỉ đáp ứng nhu cầu hằng ngày, sản phẩm còn mang lại trải nghiệm tiện lợi, thoải mái và đảm bảo an toàn cho sức khỏe.</p>
-        <p style="width : 90%; margin : auto">
-            <a asp-action="Create" class="btn-primary">Thêm mới</a>
-        </p>
     </div>
             @foreach(var product in Model)
             {
@@ -92,8 +89,8 @@
                     <h3>@product.Name</h3>
                     <p class="description">@product.Description</p>
                     <p>Giá: @product.Price.ToString("N0") VNĐ</p>
-                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn-danger">Delete</a>
-                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn-danger">Edit</a>
+                    @* <a asp-action="Delete" asp-route-id="@product.Id" class="btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn-danger">Edit</a> *@
 
                 </div>
             }

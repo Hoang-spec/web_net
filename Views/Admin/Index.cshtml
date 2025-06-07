@@ -1,0 +1,73 @@
+@model IEnumerable<Products.Models.Product>
+
+@{
+    ViewData["Title"] = "Bảng Điều Khiển Admin";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Bảng Điều Khiển Admin</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Sản Phẩm</h5>
+                    <p class="card-text">Tổng số sản phẩm: @Model.Count()</p>
+                    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Thêm Sản Phẩm Mới</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Danh Mục</h5>
+                    <p class="card-text">Quản lý danh mục sản phẩm</p>
+                    <a asp-action="Categories" class="btn btn-primary">Xem Danh Mục</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Người Dùng</h5>
+                    <p class="card-text">Quản lý tài khoản người dùng</p>
+                    <a asp-action="Users" class="btn btn-primary">Xem Người Dùng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5 class="mb-0">Sản Phẩm Gần Đây</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Giá</th>
+                            <th>Danh Mục</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Price.ToString("C")</td>
+                                <td>@item.Category?.Name</td>
+                                <td>
+                                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,50 @@
+@model IEnumerable<Buoi2.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Quản Lý Người Dùng";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Quản Lý Người Dùng</h1>
+
+    <div class="alert alert-info">
+        <strong>Thông tin tài khoản Admin mặc định:</strong><br>
+        Email: admin@example.com<br>
+        Mật khẩu: Admin123
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Họ Tên</th>
+                            <th>Mật Khẩu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.Email</td>
+                                <td>@user.FirstName @user.LastName</td>
+                                <td>@user.PasswordHash</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function toggleRole(userId) {
+            // Implement role toggling functionality
+            alert('Role toggling functionality will be implemented here');
+        }
+    </script>
+} 
