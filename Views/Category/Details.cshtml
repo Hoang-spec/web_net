@@ -41,9 +41,9 @@
                             <td>@product.Price.ToString("N0") VNĐ</td>
                             <td>@product.Description</td>
                             <td>
-                                @if (!string.IsNullOrEmpty(product.image))
+                                @if (!string.IsNullOrEmpty(product.Image))
                                 {
-                                    <img src="@product.image" alt="@product.Name" style="max-width: 100px;" />
+                                    <img src="@product.Image" alt="@product.Name" style="max-width: 100px;" />
                                 }
                             </td>
                             <td>

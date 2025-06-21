@@ -46,7 +46,7 @@
             displayedCategoryIds.Add(item.Category.Id);
             <div class="cate">
                 <div class="lo">
-                    <img src="@item.Category?.Logo" alt="">
+                    <img src="@(item.Category.Logo ?? "/images/default-category.png")" alt="@item.Category.Name">
                 </div>
                 <div class="cate_text">
                     <h3>@item.Category.Name</h3>
@@ -84,11 +84,13 @@
             @foreach(var product in Model)
             {
                 <div class="product-item">
-                    <img src="@product.image" alt="@product.Name" />
+                    <a style="text-decoration: none;" asp-controller="Product" asp-action="Detailss" asp-route-id="@product.Id"> 
+                    <img src="@product.Image" alt="@product.Name" />
 
                     <h3>@product.Name</h3>
                     <p class="description">@product.Description</p>
                     <p>Giá: @product.Price.ToString("N0") VNĐ</p>
+                    </a>
                     @* <a asp-action="Delete" asp-route-id="@product.Id" class="btn-danger">Delete</a>
                     <a asp-action="Edit" asp-route-id="@product.Id" class="btn-danger">Edit</a> *@
 

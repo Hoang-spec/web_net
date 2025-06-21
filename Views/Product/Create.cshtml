@@ -1,5 +1,6 @@
 @using Products.Models
-@model Products.Models.Product
+@using Products.ViewModels
+@model ProductCreateViewModel
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -13,42 +14,41 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Name" class="form-label">Tên Sản Phẩm</label>
-                            <input asp-for="Name" class="form-control" required 
+                            <label asp-for="Product.Name" class="form-label">Tên Sản Phẩm</label>
+                            <input asp-for="Product.Name" class="form-control" required 
                                    placeholder="Ví dụ: Điện thoại iPhone 15 Pro Max" />
-                            <span asp-validation-for="Name" class="text-danger"></span>
+                            <span asp-validation-for="Product.Name" class="text-danger"></span>
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Price" class="form-label">Giá Bán</label>
+                            <label asp-for="Product.Price" class="form-label">Giá Bán</label>
                             <div class="input-group">
-                                <input asp-for="Price" class="form-control" type="number" step="1000" required 
+                                <input asp-for="Product.Price" class="form-control" type="number" step="1000" required 
                                        placeholder="Ví dụ: 25000000" />
                                 <span class="input-group-text">VNĐ</span>
                             </div>
                             <small class="form-text text-muted">Nhập giá tiền bằng số, không cần dấu phẩy hoặc dấu chấm</small>
-                            <span asp-validation-for="Price" class="text-danger"></span>
+                            <span asp-validation-for="Product.Price" class="text-danger"></span>
                         </div>
                         
                         <div class="form-group mb-3">
-                            <label asp-for="Description" class="form-label">Mô Tả Chi Tiết</label>
-                            <textarea asp-for="Description" class="form-control" rows="4" required 
+                            <label asp-for="Product.Description" class="form-label">Mô Tả Chi Tiết</label>
+                            <textarea asp-for="Product.Description" class="form-control" rows="4" required 
                                       placeholder="Mô tả chi tiết về sản phẩm, tính năng, thông số kỹ thuật..."></textarea>
-                            <span asp-validation-for="Description" class="text-danger"></span>
+                            <span asp-validation-for="Product.Description" class="text-danger"></span>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label class="form-label">Hình ảnh sản phẩm</label>
-                            <input type="file" name="imageFile" class="form-control" accept="image/*" required />
-                            <small class="form-text text-muted">Chọn hình ảnh sản phẩm (JPG, PNG, GIF)</small>
+                            <label asp-for="Image" class="form-label">Hình Ảnh Sản Phẩm</label>
+                            <input asp-for="Image" type="file" class="form-control" accept="image/*" />
                         </div>
 
                         <div class="form-group mb-3">
-                            <label asp-for="CategoryId" class="form-label">Danh Mục Sản Phẩm</label>
-                            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories" required>
+                            <label asp-for="Product.CategoryId" class="form-label">Danh Mục Sản Phẩm</label>
+                            <select asp-for="Product.CategoryId" class="form-select" asp-items="ViewBag.Categories" required>
                                 <option value="">-- Vui lòng chọn danh mục --</option>
                             </select>
-                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
                         </div>
                         
                         <div class="form-group mt-4">

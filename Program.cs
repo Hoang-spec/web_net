@@ -63,7 +63,7 @@ using (var scope = app.Services.CreateScope())
     }
 
     // Create default admin account
-    string adminEmail = "admin@example.com";
+    string adminEmail = "Admin@gmail.com.vn";
     string adminPassword = "Admin123@";
 
     var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
@@ -75,7 +75,7 @@ using (var scope = app.Services.CreateScope())
             Email = adminEmail,
             FirstName = "Admin",
             LastName = "User",
-            EmailConfirmed = true // Thêm dòng này để xác nhận email
+            EmailConfirmed = true 
         };
 
         var result = await userManager.CreateAsync(admin, adminPassword);
@@ -95,5 +95,14 @@ using (var scope = app.Services.CreateScope())
         logger.LogInformation("Admin account already exists");
     }
 }
+
+// cau hinh dinh tuyen
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "Default",
+        pattern: "{controller=Product}/{action=Index}/{id?}"
+    );
+});
 
 app.Run();

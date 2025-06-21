@@ -213,7 +213,6 @@ E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.pdb
 E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.genruntimeconfig.cache
 E:\NET\Buoi2\obj\Debug\net9.0\ref\Buoi2.dll
 E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.sourcelink.json
-E:\NET\Buoi2\obj\Debug\net9.0\compressed\n3ky4y2xcf-dkdgkjkbtg.gz
 E:\NET\Buoi2\obj\Debug\net9.0\Buoi2.MvcApplicationPartsAssemblyInfo.cs
 E:\NET\Buoi2\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\NET\Buoi2\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -285,3 +284,4 @@ E:\NET\Buoi2\obj\Debug\net9.0\compressed\a3ygkwa5zy-2z0ns9nrw6.gz
 E:\NET\Buoi2\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 E:\NET\Buoi2\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 E:\NET\Buoi2\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
+E:\NET\Buoi2\obj\Debug\net9.0\compressed\n3ky4y2xcf-je5qr9basy.gz

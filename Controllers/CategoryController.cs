@@ -113,7 +113,7 @@ namespace Buoi2.Controllers
 
                     if (result > 0)
                     {
-                        _logger.LogInformation("Category updated successfully. New values: Name={Name}, Description={Description}, Logo={Logo}", 
+                        _logger.LogInformation("Category updated successfully. New values: Name={Name}, Description={Description}", 
                             existingCategory.Name, existingCategory.Description);
                         TempData["Success"] = "Cập nhật danh mục thành công!";
                         return Json(new { success = true, message = "Cập nhật thành công!" });

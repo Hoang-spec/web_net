@@ -2258,3 +2258,148 @@ body {
 .themmoi h2{
   font-size: 30px;
 }
+
+
+
+
+
+
+
+
+
+/* dkjhfgshdjfhdsbjnfvshkfgdvsvnrejghdskmvdsbkjhbjsdfhsdbjhlfkjhsdjbfhjsdhalggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg */
+.detailsP{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    
+}
+.detail_left{
+    width: 49%;
+
+}
+.detail_left .img_del {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+
+    display: flex;
+    justify-content: center; /* căn ngang */
+    align-items: center;     /* căn dọc */
+}
+
+.detail_left .img_del img {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.detail_left .detaill_info a{
+    text-decoration: none;
+    padding-top: 30px;
+    padding-left: 0px;
+    padding-bottom: 20px;
+}
+.detail_left .detaill_info a:hover{
+    border-bottom: 1px solid black;
+}
+.detail_left .detaill_info h2{
+    padding: 10px;
+    margin: auto;
+}
+
+.detail_right{
+    display: flex;
+    margin-left: 40px;
+    width: 49%;
+    flex-direction: column;
+}
+.detail_right h6{
+    font-size: 12px;
+    font-weight: 600;
+}
+.detail_model{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+.models_box{
+    width: 60px;
+    margin: 3px;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+    background-color: whitesmoke;
+    text-align: center;
+}
+.models_box:hover{
+    border: 1px solid rgb(171, 171, 171);
+}
+.detail_color{
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.detail_color {
+  display: flex;
+  gap: 6px;
+}
+
+input[type="radio"] {
+  display: none; /* Ẩn input */
+}
+
+.color_box {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #ccc;
+}
+
+/* Khi radio được chọn -> div kế nó (label) đổi opacity */
+input[type="radio"]:checked + .color_box {
+  opacity: 1;
+  box-shadow: 0 0 0 1px rgb(156, 156, 156); /* vòng ngoài */
+  border-color: white;
+}
+.detail_info{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.detail_info h5{
+    font-size: 12px;
+    color: #4DB879;
+}
+.detail_action{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.detail_action .actions_quantity{
+    width: 25%;
+    
+}
+.detail_action .actions_order{
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    background-color: red;
+}
+.detail_action .actions_order a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 30px;
+    background-color: pink;
+}
+.detail_action .actions_order .a_o_heart{
+    width: 25%;
+    background-color: rgb(173, 173, 173);
+    margin-right: 5px;
+    
+}
+/* camsnfkjagjskasjasfafbaa da */

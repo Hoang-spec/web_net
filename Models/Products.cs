@@ -13,24 +13,35 @@ namespace Products.Models
 
         [Required(ErrorMessage = "Vui lòng nhập tên sản phẩm")]
         [Display(Name = "Tên sản phẩm")]
-        public string Name { get; set; }
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "Tên sản phẩm phải từ 3 đến 200 ký tự")]
+        public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Vui lòng nhập mô tả")]
         [Display(Name = "Mô tả")]
-        public string Description { get; set; }
+        [StringLength(2000, MinimumLength = 10, ErrorMessage = "Mô tả phải từ 10 đến 2000 ký tự")]
+        public string Description { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Vui lòng nhập giá")]
         [Display(Name = "Giá")]
+        [Range(0, double.MaxValue, ErrorMessage = "Giá không được âm")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         [Display(Name = "Hình ảnh")]
-        public string? image { get; set; }
+        [StringLength(500)]
+        public string? Image { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn danh mục")]
         [Display(Name = "Danh mục")]
         public int CategoryId { get; set; }
-        
+
         [ForeignKey("CategoryId")]
         public virtual Category? Category { get; set; }
+
+        [Display(Name = "Ngày tạo")]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        [Display(Name = "Ngày cập nhật")]
+        public DateTime? UpdatedAt { get; set; }
     }
 }

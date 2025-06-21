@@ -1,0 +1,56 @@
+@model Products.Models.Product
+
+<h1 style="width : 80%; margin : 30px auto">@Model.Name</h1>
+<section class="detailsP">
+    <div class="detail_left">
+        <div class="img_del"><img src="@Model.Image" alt=""></div>
+         <div class="detaill_info">
+            <a href="">Description</a>
+            <hr>
+            <h2>Origin and technology</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit adipisci ducimus eos provident ratione quibusdam doloribus dolores nam nihil. Commodi, consequuntur! Consequatur eum iste dolor molestiae nam nostrum suscipit accusamus.</p>
+            <br>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, vel saepe quas ducimus sit dolore ab aspernatur tempore alias hic porro reprehenderit, dolor adipisci assumenda natus delectus ut, suscipit odit!</p>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem minima aperiam odit nam exercitationem architecto expedita assumenda possimus aspernatur, veritatis repudiandae provident eligendi, tempore iure? Saepe natus est aut sed!</p>
+         </div>
+    </div>
+    <div class="detail_right">
+        <h6>Model</h6>
+        <div class="detail_model">
+            
+            <div class="models_box"></div>
+            <div class="models_box"></div>
+            <div class="models_box"></div>
+            <div class="models_box"></div>
+        </div>
+        <h6>Color</h6>
+        <div class="detail_color">
+            <input type="radio" name="color" id="color-red">
+            <label for="color-red" class="color_box" style="background-color: red;"></label>
+
+            <input type="radio" name="color" id="color-blue">
+            <label for="color-blue" class="color_box" style="background-color: blue;"></label>
+
+            <input type="radio" name="color" id="color-green">
+            <label for="color-green" class="color_box" style="background-color: green;"></label>
+
+            <input type="radio" name="color" id="color-pink">
+            <label for="color-pink" class="color_box" style="background-color: pink;"></label>
+        </div>
+        <div class="detail_info">
+            <h4>@Model.Price.ToString("N0") VND</h4>
+            <h5>Available to order</h5>
+        </div>
+        <div class="detail_action">
+            <div class="actions_quantity">
+
+            </div>
+            <div class="actions_order">
+                <a href="">ADD TO CART</a>
+                <div class="a_o_heart">H</div>
+                <div class="a_o_heart">C</div>
+            </div>
+        </div>
+    </div>
+</section>
